@@ -12,7 +12,7 @@ void cocktail_sort_list(listint_t **list)
 	listint_t *start;
 	listint_t *end;       
 	
-	start = NULL;
+	start = *list;
 	end = NULL;
 	swapped = 1;
 	
@@ -23,29 +23,28 @@ void cocktail_sort_list(listint_t **list)
 	do
 	{
 		swapped = 0;
-		for (start = *list; start->next != end; start = start->next)
+		for (start; start->next != end; start = start->next)
 		{
 			if (start->n > start->next->n)
 			{
 				swap_nodes(start, start->next, list);
 				swapped = 1;
+				end = start->next;
 			}
 		}
 		if (!swapped)
 		{
 			break;
 		}
-		end = start;
-		swapped = 0;
 		for (end = start; end->prev != NULL; end = end->prev)
 		{
 			if (end->n < end->prev->n)
 			{
 				swap_nodes(end->prev, end, list);
 				swapped = 1;
+				start = end->prev;
 			}
 		}
-		start = end;
 	}while (swapped);
 }
 
