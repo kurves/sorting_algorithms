@@ -20,7 +20,7 @@ void cocktail_sort_list(listint_t **list)
 	{
 		return;
 	}
-	while (swapped)
+	do
 	{
 		swapped = 0;
 		for (start = *list; start->next != end; start = start->next)
@@ -44,7 +44,7 @@ void cocktail_sort_list(listint_t **list)
 				swapped = 1;
 			}
 		}
-	}
+	}while (swapped);
 }
 
 /**
