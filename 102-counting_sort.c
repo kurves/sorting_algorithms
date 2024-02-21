@@ -39,7 +39,7 @@ void counting_sort(int *array, size_t size)
 		count[array[i]]++;
 	}
 	printf("Counting array:\n");
-	for (int i = 0; i <= max; i++)
+	for (i = 0; i <= max; i++)
 	{
 		printf("%d: %d\n", i, count[i]);
 	}
