@@ -11,7 +11,7 @@
 void counting_sort(int *array, size_t size)
 {
 	int max;
-	int temp;
+	int *temp;
 	int *count;
 	size_t j;
 	size_t i;
@@ -53,13 +53,15 @@ void counting_sort(int *array, size_t size)
 		free(count);
 		return;
 	}
-	for (i = 0; i <= max_size_t; i++)
+	j = size - 1; 
+	for (i = max_size_t; i <= max_size_t; i--)
 	{
 		while (count[i] > 0)
 		{
-			array[j++] = i;
+			temp[j--] = i;
 			count[i]--;
 		}
 	}
+	free(temp);
 	free(count);
 }
