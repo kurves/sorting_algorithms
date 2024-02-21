@@ -11,6 +11,7 @@
 void counting_sort(int *array, size_t size)
 {
 	int max;
+	int temp;
 	int *count;
 	size_t j;
 	size_t i;
@@ -38,12 +39,14 @@ void counting_sort(int *array, size_t size)
 	{
 		count[array[i]]++;
 	}
-	printf("Counting array:\n");
 	for (i = 0; i <= max_size_t; i++)
 	{
-		printf("%d\n", count[i]);
+		printf("%d", count[i]);
 	}
-	j = 0;
+	for (i = 1; i <= max_size_t; i++)
+	{
+		count[i] += count[i - 1];
+	}
 	for (i = 0; i <= max_size_t; i++)
 	{
 		while (count[i] > 0)
