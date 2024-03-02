@@ -69,13 +69,13 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 	{
 		*list = node2;
 	}
-	if (a->prev != NULL)
+	if (node1->prev != NULL)
 	{
-		a->prev->next = b;
+		node1->prev->next = node2;
 	}
-	if (b->next != NULL)
+	if (node2->next != NULL)
 	{
-		b->next->prev = a;
+		node2->next->prev = node1;
 	}
 	if (a->next == b)
 	{
