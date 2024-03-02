@@ -29,7 +29,9 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (end->prev->n > end->n)
 			{
-				swap_nodes(start, start->next, list);
+				printf("%d <=> %d\n", right->prev->n, right->n);
+				swap_nodes(list, end->prev, end);
+				start = end;
 				swapped = 1;
 			}
 		}
