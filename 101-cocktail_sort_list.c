@@ -19,7 +19,10 @@ void cocktail_sort_list(listint_t **list)
 	{
 		return;
 	}
-	do
+	start  = *list;
+	end = (*list)->next;
+	while(start != end)
+
 	{
 		swapped = 0;
 		for (; start->next != end; start = start->next)
