@@ -21,13 +21,13 @@ void cocktail_sort_list(listint_t **list)
 	}
 	start  = *list;
 	end = (*list)->next;
-	while(start != end)
 
+	while(start != end)
 	{
 		swapped = 0;
 		for (; end != NULL; end = end->next)
 		{
-			if (start->n > start->next->n)
+			if (end->prev->n > end->n)
 			{
 				swap_nodes(start, start->next, list);
 				swapped = 1;
@@ -58,8 +58,17 @@ void cocktail_sort_list(listint_t **list)
  * Description: function to swap nodes
  * Return: nothing
  */
-void swap_nodes(listint_t *a, listint_t *b, listint_t **list)
+void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 {
+
+	if (*list == NULL || node1 == NULL || node2 == NULL)
+	{
+		return;
+	}
+	if (*list == node1)
+	{
+		*list = node2;
+	}
 	if (a->prev != NULL)
 	{
 		a->prev->next = b;
