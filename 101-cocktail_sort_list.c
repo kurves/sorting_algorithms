@@ -41,7 +41,7 @@ void cocktail_sort_list(listint_t **list)
 			break;
 		}
 		swapped = 0;
-		for (right = right->prev; right != left; right = right->prev)
+		for (right = right->prev; right != start; right = right->prev)
 		{
 			if (end->next->n < right->n)
 			{
