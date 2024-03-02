@@ -40,16 +40,17 @@ void cocktail_sort_list(listint_t **list)
 			break;
 		}
 		swapped = 0;
-		end = start;
-		for (; start->prev != NULL; start = start->prev)
+		for (right = right->prev; right != left; right = right->prev)
 		{
-			if (start->n < start->prev->n)
+			if (end->next->n < right->n)
 			{
-				swap_nodes(start->prev, start, list);
+				printf("%d <=> %d\n", right->n, right->next->n);
+				swap_nodes(list, end, end->next);
+				end = end->prev;
 				swapped = 1;
 			}
 		}
-	}while (swapped);
+	}
 }
 
 /**
