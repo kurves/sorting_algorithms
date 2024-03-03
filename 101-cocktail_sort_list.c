@@ -33,21 +33,24 @@ void cocktail_sort_list(listint_t **list)
 				swapped = 1;
 				print_list(*list);
 			}
+			start = start->next;
+		}
+		end = start;
 		if (!swapped)
 		{
 			break;
 		}
-		swapped = 0;
-		for (end = end->prev; end != start; end = end->prev)
+		while (end->prev != start)
 		{
-			if (end->next->n < end->n)
+			if (end->n < end->prev->n)
 			{
-				print_list(*list);
 				swap_nodes(list, end, end->next);
-				end = end->prev;
 				swapped = 1;
+				print_list(*list);
 			}
+			end = end->prev;
 		}
+		start = end;
 	}
 }
 
