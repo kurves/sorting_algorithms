@@ -41,9 +41,9 @@ void cocktail_sort_list(listint_t **list)
 			break;
 		}
 		swapped = 0;
-		for (right = right->prev; right != start; right = right->prev)
+		for (end = end->prev; end != start; end = end->prev)
 		{
-			if (end->next->n < right->n)
+			if (end->next->n < end->n)
 			{
 				printf("%d <=> %d\n", end->n, end->next->n);
 				swap_nodes(list, end, end->next);
