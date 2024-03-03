@@ -68,10 +68,6 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 
         temp = node1->next;
 
-	if (*list == NULL || node1 == NULL || node2 == NULL)
-	{
-		return;
-	}
 	if (node1->prev != NULL)
 	{
 		node1->prev->next = node2;
@@ -82,7 +78,7 @@ void swap_nodes(listint_t **list, listint_t *node1, listint_t *node2)
 	}
 	if (node1 == *list)
 	{
-		*list = node2
+		*list = node2;
 	}
 	else if (node2 == *list)
 	{
